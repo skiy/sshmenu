@@ -260,13 +260,21 @@ def display_menu():
                 if length > longest_host:
                     longest_host = length
 
+            puts(colored.yellow('    ' + "ID " + u'User'.ljust(longest_host) + ' | ' + u'Host'.ljust(longest_host)  + ' | ' + u'Note'.ljust(longest_host) + ' | ' + 'Login'))
             # Generate description and check line length
             for index, target in enumerate(targets):
-                desc = target['host'].ljust(longest_host) + ' | ' + target['friendly']
-                target['desc'] = desc
-                line_length = len(desc)
-                if line_length > longest_line:
-                    longest_line = line_length
+                Auto = "No"
+                SockFile = '/tmp/' + target['host']
+                if os.path.exists(SockFile):
+                    Auto = "YesAutoLogin"
+                User = target['host'].split('@')[0].ljust(longest_host)
+                Host = target['host'].split('@')[1].ljust(longest_host)
+                Note = target['friendly'].ljust(longest_host)
+                desc = '%2d ' % (index) + User + ' | ' + Host + ' | ' + Note + ' | ' + Auto
+                if index == selected_target:
+                    puts(colored.green(' -> ' + desc))
+                else:
+                    puts('    ' + desc)
 
             # Recalculate visible targets based on selected_target
             if selected_target > max(visible_target_range):
@@ -285,19 +293,6 @@ def display_menu():
             # Used to pad out the line numbers so that we can keep everything aligned
             num_digits = len(str(num_targets))
             digits_format_specifier = '%' + str(num_digits) + 'd'
-
-            # Print items
-            for index, target in enumerate(targets):
-                # Only print the items that are within the visible range.
-                # Due to lines changing their position on the screen when scrolling,
-                # we need to redraw the entire line + add padding to make sure all
-                # traces of the previous line are erased.
-                if index in visible_target_range:
-                    line = (digits_format_specifier + '. %s ') % (index + 1, target['desc'].ljust(longest_line))
-                    if index == selected_target:
-                        puts(colored.green(' -> %s' % line))
-                    else:
-                        puts(colored.white('    %s' % line))
 
         # Hang until we get a keypress
         key = readchar.readkey()
@@ -352,6 +347,9 @@ def display_menu():
 
             # Arguments to the child process should start with the name of the command being run
             args = [command] + target.get('options', []) + [target['host']]
+            print "\n\n\n\n\n\n\n"
+            print command
+            print args
             try:
                 # After this line, ssh will replace the python process
                 os.execvp(command, args)

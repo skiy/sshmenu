@@ -1,5 +1,62 @@
 sshmenu
 -------
+
+**sshmenu**
+
+.. code-block:: bash
+
+   sshmemu -c selboo
+
+.. code-block:: bash
+
+   Select a target (press "h" for help)
+       ID User           | Host           | Note           | Login
+    ->  0 selboo         | 1.1.1.1        | server 1       | YesAutoLogin
+        1 selboo         | 2.2.2.2        | server 2       | No
+
+**selboo.json**
+
+.. code-block:: json
+
+    {
+        "targets": [
+            {
+                "host": "selboo@1.1.1.1",
+                "command": "ssh",
+                "friendly": "server 1",
+                "options": [
+                    "-p22",
+                    "-i/Users/selboo/.ssh/id_rsa",
+                    "-F/Users/selboo/config",
+                    "-oStrictHostKeyChecking=no",
+                    "-oConnectTimeout=3"
+                ]
+            },
+            {
+                "host": "selboo@2.2.2.2",
+                "command": "ssh",
+                "friendly": "server 2",
+                "options": [
+                    "-p22",
+                    "-i/Users/selboo/.ssh/id_rsa",
+                    "-F/Users/selboo/config",
+                    "-oStrictHostKeyChecking=no",
+                    "-oConnectTimeout=3"
+                ]
+            }
+        ]
+    }
+
+**config**
+
+.. code-block:: test
+
+   Host *
+   ControlMaster auto
+   ControlPath /tmp/%r@%h
+   ControlPersist 80000
+
+
 ``sshmenu`` is a simple tool for connecting to remote hosts via ssh. Great if you have trouble remembering ip addresses, hostnames, or usernames.
 
 This tool works by using Python's ``os.execvp(...)``, which will replace the current process (python) with ``ssh`` to create a seamless transition.
@@ -10,7 +67,6 @@ This tool works by using Python's ``os.execvp(...)``, which will replace the cur
 Quick Setup
 -----------
 Tested working on macOS High Sierra (10.13.1) and Ubuntu Trusty Tahr (14.04), Xenial Xerus (16.04)
-
 
 **macOS**
 
