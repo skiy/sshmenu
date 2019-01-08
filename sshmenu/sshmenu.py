@@ -270,7 +270,7 @@ def display_menu():
                 User = target['host'].split('@')[0].ljust(longest_host)
                 Host = target['host'].split('@')[1].ljust(longest_host)
                 Note = target['friendly'].ljust(longest_host)
-                desc = '%2d ' % (index) + User + ' | ' + Host + ' | ' + Note + ' | ' + Auto
+                desc = '%2d ' % (index + 1) + User + ' | ' + Host + ' | ' + Note + ' | ' + Auto
                 if index == selected_target:
                     puts(colored.green(' -> ' + desc))
                 else:
