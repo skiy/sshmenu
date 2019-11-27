@@ -30,7 +30,7 @@ def main():
     args = parser.parse_args()
 
     # Get config name
-    config_name = '{configname}.json'.format(configname=args.configname)
+    config_name = '{configname}'.format(configname=args.configname)
 
     # First parameter is 'company' name, hence duplicate arguments
     resources.init('sshmenu', 'sshmenu')

@@ -5,7 +5,7 @@ sshmenu
 
 .. code-block:: bash
 
-   sshmemu -c selboo
+   sshmemu -c selboo.json
 
 .. code-block:: bash
 
@@ -41,13 +41,15 @@ sshmenu
                     "-i/Users/selboo/.ssh/id_rsa",
                     "-F/Users/selboo/config",
                     "-oStrictHostKeyChecking=no",
-                    "-oConnectTimeout=3"
+                    "-oConnectTimeout=3",
+                    "-oTCPKeepAlive=yes",
+                    "-oServerAliveInterval=30"
                 ]
             }
         ]
     }
 
-**config**
+**/Users/selboo/config**
 
 .. code-block:: test
 
