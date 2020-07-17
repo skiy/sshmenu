@@ -93,6 +93,12 @@ Tested working on macOS High Sierra (10.13.1) and Ubuntu Trusty Tahr (14.04), Xe
    pip3 install -r requirements.txt
    python3 -m sshmenu
 
+**Offline installation**
+
+.. code-block:: bash
+
+   python setup.py install
+
 Configuration
 -------------
 On first run an example configuration file will be created for you, along with the path. For reference, I've added this information here as well.

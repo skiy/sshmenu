@@ -347,8 +347,8 @@ def display_menu():
 
             # Arguments to the child process should start with the name of the command being run
             args = [command] + target.get('options', []) + [target['host']]
-            print ()"\n\n\n\n\n\n\n")
-            print ()command)
+            print ("\n\n\n\n\n\n\n")
+            print (command)
             print (args)
             try:
                 # After this line, ssh will replace the python process
