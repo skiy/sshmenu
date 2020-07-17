@@ -36,7 +36,7 @@ def main():
     resources.init('sshmenu', 'sshmenu')
 
     # If the config file doesn't exist, create an example config
-    if resources.user.read(config_name) is None:
+    if resources.user.read(config_name) == None:
         example_config = {
             'targets': [
                 {
@@ -95,7 +95,7 @@ def connection_create():
 
     host = input('Hostname (user@machine): ')
 
-    if host is '':
+    if host == '':
         puts('')
         puts('Nothing done')
         time.sleep(TRANSITION_DELAY_TIME)
@@ -133,7 +133,7 @@ def connection_edit(selected_target):
 
     while True:
         host = input_prefill('Hostname: ', target['host'])
-        if host is not '':
+        if host != '':
             break
 
     friendly = input_prefill('Description: ', target['friendly'])

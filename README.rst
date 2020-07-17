@@ -5,7 +5,7 @@ sshmenu
 
 .. code-block:: bash
 
-   sshmemu -c selboo.json
+   sshmenu -c selboo.json
 
 .. code-block:: bash
 
