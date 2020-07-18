@@ -74,7 +74,7 @@ Tested working on macOS High Sierra (10.13.1) and Ubuntu Trusty Tahr (14.04), Xe
 
 .. code-block:: bash
 
-   brew install https://raw.githubusercontent.com/mmeyer724/sshmenu/master/sshmenu.rb
+   brew install https://raw.githubusercontent.com/skiy/sshmenu/master/sshmenu.rb
    sshmenu
    
 **Linux**
@@ -88,7 +88,7 @@ Tested working on macOS High Sierra (10.13.1) and Ubuntu Trusty Tahr (14.04), Xe
 
 .. code-block:: bash
 
-   git clone https://github.com/mmeyer724/sshmenu.git
+   git clone https://github.com/skiy/sshmenu.git
    cd sshmenu
    pip3 install -r requirements.txt
    python3 -m sshmenu

@@ -1,9 +1,9 @@
 class Sshmenu < Formula
   include Language::Python::Virtualenv
 
-  homepage "https://github.com/mmeyer724/sshmenu"
-  url "https://github.com/mmeyer724/sshmenu/archive/0.0.4.tar.gz"
-  sha256 "7d657d2e06045382ba08cf16e9214d0481da126efb58c207642281b7b78078a0"
+  homepage "https://github.com/skiy/sshmenu"
+  url "https://github.com/skiy/sshmenu/archive/0.1.0.tar.gz"
+  sha256 "7bf49eb693925071e68c074289057142b5a411d4868cf859198e94531b5c9b01"
 
   depends_on "python3"
 
